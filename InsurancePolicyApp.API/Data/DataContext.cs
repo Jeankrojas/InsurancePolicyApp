@@ -1,3 +1,4 @@
+using InsurancePolicyApp.API.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace InsurancePolicyApp.API.Data
@@ -5,5 +6,8 @@ namespace InsurancePolicyApp.API.Data
     public class DataContext : DbContext
     {
         public DataContext(DbContextOptions<DataContext>  options) : base (options) {}
+
+        public DbSet<User> Users { get; set; }
+
     }
 }
