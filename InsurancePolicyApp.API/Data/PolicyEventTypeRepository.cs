@@ -19,6 +19,7 @@ namespace InsurancePolicyApp.API.Data
             _context.Add(entity);
         }
 
+        //Verify rule Percent-Risk
         public async Task<bool> VerifyRisk(int riskId, double percent)
         {
             var risk = await _context.RiskTypes.FirstOrDefaultAsync(r => r.Id == riskId);           

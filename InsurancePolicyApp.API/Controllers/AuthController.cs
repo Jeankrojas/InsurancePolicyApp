@@ -50,6 +50,7 @@ namespace InsurancePolicyApp.API.Controllers
             if (userFromRepo == null)
                 return Unauthorized();
 
+            // Creating authentication token
             var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),

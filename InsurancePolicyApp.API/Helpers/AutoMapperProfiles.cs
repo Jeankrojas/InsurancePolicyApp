@@ -4,6 +4,7 @@ using InsurancePolicyApp.API.Models;
 
 namespace InsurancePolicyApp.API.Helpers
 {
+    /* Mapping Dto with entities automatically */
     public class AutoMapperProfiles : Profile
     {
         public AutoMapperProfiles()

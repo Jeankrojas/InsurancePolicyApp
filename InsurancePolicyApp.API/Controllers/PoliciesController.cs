@@ -27,6 +27,8 @@ namespace InsurancePolicyApp.API.Controllers
         public async Task<IActionResult> CreatePolicy(PolicyDto policyForCreateDto)
         {
             var policyToCreate = new Policy();
+
+            //Auto maping Dto to entity
             _mapper.Map(policyForCreateDto, policyToCreate);
             _repo.Add(policyToCreate);
 
@@ -50,6 +52,7 @@ namespace InsurancePolicyApp.API.Controllers
             throw new Exception($"updating policy {id} failed on save");
         }
 
+        //Get list of Policies
         [HttpGet]
         public async Task<IActionResult> GetPolicies()
         {
@@ -60,6 +63,7 @@ namespace InsurancePolicyApp.API.Controllers
             return Ok(policiesToReturn);
         }
 
+        //Get an especific policy
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPolicy(int id)
         {
@@ -70,6 +74,7 @@ namespace InsurancePolicyApp.API.Controllers
             return Ok(policyToReturn);
         }
 
+        //Assing policy to client
         [HttpPost("assing")]
         public async Task<IActionResult> AssingPolicy(int policyId, int clientId)
         {

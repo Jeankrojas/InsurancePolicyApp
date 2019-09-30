@@ -79,7 +79,7 @@ namespace InsurancePolicyApp.API
                     });
                 });
             }
-
+            //Load data to the Database
             seeder.SeedUsers();
             seeder.SeedRiskTypes();
             seeder.SeedEventTypes();

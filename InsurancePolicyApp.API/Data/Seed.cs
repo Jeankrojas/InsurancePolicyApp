@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 
 namespace InsurancePolicyApp.API.Data
 {
+    /* Get data from diferents json files to add it to the database */
     public class Seed
     {
         private readonly DataContext _context;
@@ -26,8 +27,16 @@ namespace InsurancePolicyApp.API.Data
 
             _context.Users.Add(user);
 
-
             _context.SaveChanges();
+        }
+
+        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
+        {
+            using (var hmac = new System.Security.Cryptography.HMACSHA512())
+            {
+                passwordSalt = hmac.Key;
+                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
+            } 
         }
 
         public void SeedRiskTypes() 
@@ -76,15 +85,6 @@ namespace InsurancePolicyApp.API.Data
             }
 
             _context.SaveChanges();
-        }
-
-        private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
-        {
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                passwordSalt = hmac.Key;
-                passwordHash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
-            } 
         }
     }
 }

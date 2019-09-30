@@ -26,6 +26,7 @@ namespace InsurancePolicyApp.API.Controllers
         [HttpPost("")]
         public async Task<IActionResult> CreatePolicyEventType(PolicyEventType policyEventTypeForCreate)
         {
+            //Verify rule Percent-Risk
             if (!await _repo.VerifyRisk(policyEventTypeForCreate.RiskTypeId, policyEventTypeForCreate.Percent)) {
                 return BadRequest("The percentage can't be greater than fifty if the risk is high");
             }
@@ -44,6 +45,7 @@ namespace InsurancePolicyApp.API.Controllers
             if (!await _repo.VerifyRisk(policyEventTypeForUpdateDto.RiskTypeId, policyEventTypeForUpdateDto.Percent)) {
                 return BadRequest("The percentage can't be greater than fifty if the risk is high");
             }
+            
             var policyEventTypeFromRepo = await _repo.GetPolicyEventType(id);
             _mapper.Map(policyEventTypeForUpdateDto, policyEventTypeFromRepo);
 
