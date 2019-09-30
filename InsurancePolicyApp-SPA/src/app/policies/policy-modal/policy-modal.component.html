@@ -1,0 +1,33 @@
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Edit data for policy</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+    <div class="modal-body">
+      <form #policyForm="ngForm" id="policyForm">
+          <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" required name="name" [(ngModel)]="editPolicy.name" placeholder="Name">
+            </div>
+          
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" class="form-control" required name="description" [(ngModel)]="editPolicy.description" placeholder="Description">
+            </div>
+    
+            <div class="form-group">
+                <label>Coverage period</label>
+                <input type="number" class="form-control" required name="coveragePeriod" [(ngModel)]="editPolicy.coveragePeriod" placeholder="Coverage period">
+            </div>
+    
+            <div class="form-group">
+              <label>Prince</label>
+                <input type="number" class="form-control" required name="price" [(ngModel)]="editPolicy.price" placeholder="Price">
+            </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
+      <button type="button" class="btn btn-success" (click)="updatePolicy()" form="policyForm">Submit</button>
+    </div>

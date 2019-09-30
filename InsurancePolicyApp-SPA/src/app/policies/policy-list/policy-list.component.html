@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <button class="btn btn-info mb-2" (click)="newPolicyModal()" title="New policy"><i class="fa fa-plus"></i> Add</button>
+  <table class="table text-center">
+    <tr>
+      <th>Policy name</th>
+      <th>Description</th>
+      <th>Coverage period</th>
+      <th>Price</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let policy of policies">
+      <td>{{policy.name}}</td>
+      <td>{{policy.description}}</td>
+      <td>{{policy.coveragePeriod}}</td>
+      <td>{{policy.price}}</td>
+      <td>
+        <button class="btn btn-info  mr-1" (click)="editPolicyModal(policy)" title="Edit"><i class="fa fa-edit"></i></button>
+        <button class="btn btn-info" title="Assing"><i class="fa fa-check"></i></button>
+      </td>
+    </tr>
+  </table>
+</div>

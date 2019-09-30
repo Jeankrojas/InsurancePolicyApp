@@ -69,5 +69,22 @@ namespace InsurancePolicyApp.API.Controllers
 
             return Ok(policyToReturn);
         }
+
+        [HttpPost("assing")]
+        public async Task<IActionResult> AssingPolicy(int policyId, int clientId)
+        {
+            var policyClient = new PolicyClient();
+            policyClient.PolicyId = policyId;
+            policyClient.ClientId = clientId;
+            policyClient.ValidityStarted = DateTime.Now;
+
+            _repo.Add(policyClient);
+
+            if (await _repo.SaveAll()) {
+                return Ok();
+            }
+
+            throw new Exception($"Assing failed on save");
+        }
     }
 }
