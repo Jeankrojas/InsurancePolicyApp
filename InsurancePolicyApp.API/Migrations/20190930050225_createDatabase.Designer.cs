@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InsurancePolicyApp.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190929001639_createtables")]
-    partial class createtables
+    [Migration("20190930050225_createDatabase")]
+    partial class createDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,7 +44,6 @@ namespace InsurancePolicyApp.API.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 64)))
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
@@ -129,7 +128,6 @@ namespace InsurancePolicyApp.API.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 64)))
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");

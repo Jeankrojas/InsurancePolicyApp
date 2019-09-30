@@ -42,7 +42,6 @@ namespace InsurancePolicyApp.API.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 64)))
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");
@@ -127,7 +126,6 @@ namespace InsurancePolicyApp.API.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 64)))
                         .HasColumnType("varchar(50)");
 
                     b.HasKey("Id");

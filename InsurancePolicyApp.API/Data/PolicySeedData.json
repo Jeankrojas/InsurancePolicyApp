@@ -1,0 +1,56 @@
+[
+    {
+      "Name": "Poliza 1",
+      "Description": "Descripción poliza 1",
+      "CoveragePeriod": 2,
+      "Price": 3006,
+      "PolicyEventTypes": [
+        {
+          "Percent": 49,
+          "RiskTypeId": 3,
+          "EventTypeId": 3
+        },
+        {
+          "Percent": 67,
+          "RiskTypeId": 3,
+          "EventTypeId": 2
+        }
+      ]
+    },
+    {
+      "Name": "Poliza 2",
+      "Description": "Descripción poliza 2",
+      "CoveragePeriod": 2,
+      "Price": 6959,
+      "PolicyEventTypes": [
+        {
+          "Percent": 5,
+          "RiskTypeId": 2,
+          "EventTypeId": 4
+        },
+        {
+          "Percent": 29,
+          "RiskTypeId": 3,
+          "EventTypeId": 1
+        }
+      ]
+    },
+    {
+      "Name": "Poliza 3",
+      "Description": "Descripción poliza 3",
+      "CoveragePeriod": 3,
+      "Price": 5504,
+      "PolicyEventTypes": [
+        {
+          "Percent": 73,
+          "RiskTypeId": 3,
+          "EventTypeId": 4
+        },
+        {
+          "Percent": 63,
+          "RiskTypeId": 3,
+          "EventTypeId": 1
+        }
+      ]
+    }
+  ]

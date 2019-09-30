@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace InsurancePolicyApp.API.Migrations
 {
-    public partial class createtables : Migration
+    public partial class createDatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -39,6 +39,7 @@ namespace InsurancePolicyApp.API
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddCors();
             services.AddAutoMapper();
+            services.AddTransient<Seed>();
             services.AddScoped<IAuthRepository, AuthRepository>();            
             services.AddScoped<IPolicyRepository, PolicyRepository>();            
             services.AddScoped<IPolicyEventTypeRepository, PolicyEventTypeRepository>();            
@@ -56,7 +57,7 @@ namespace InsurancePolicyApp.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, Seed seeder)
         {
             if (env.IsDevelopment())
             {
@@ -79,7 +80,12 @@ namespace InsurancePolicyApp.API
                 });
             }
 
-            // app.UseHttpsRedirection();
+            seeder.SeedUsers();
+            seeder.SeedRiskTypes();
+            seeder.SeedEventTypes();
+            seeder.SeedPolicies();
+            seeder.SeedClients();
+
             app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             app.UseAuthentication();
             app.UseMvc();

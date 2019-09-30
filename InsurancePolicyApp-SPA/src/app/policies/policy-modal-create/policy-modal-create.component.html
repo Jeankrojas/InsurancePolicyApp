@@ -18,12 +18,12 @@
     
             <div class="form-group">
                 <label>Coverage period</label>
-                <input type="number" class="form-control" required name="coveragePeriod" [(ngModel)]="policy.coveragePeriod" placeholder="Coverage period">
+                <input type="text" class="form-control" required name="coveragePeriod" [(ngModel)]="policy.coveragePeriod" placeholder="Coverage period" digitOnly>
             </div>
     
             <div class="form-group">
               <label>Prince</label>
-                <input type="number" class="form-control" required name="price" [(ngModel)]="policy.price" placeholder="Price">
+                <input type="text" class="form-control" required name="price" [(ngModel)]="policy.price" placeholder="Price" digitOnly>
             </div>
       </form>
     </div>

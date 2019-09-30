@@ -5,6 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BsDropdownModule, ModalModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 import { JwtModule } from '@auth0/angular-jwt';
+import { DigitOnlyModule } from '@uiowa/digit-only';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
@@ -45,6 +46,7 @@ export function tokenGetter() {
       RouterModule.forRoot(appRoutes),
       ModalModule.forRoot(),
       ReactiveFormsModule,
+      DigitOnlyModule,
       JwtModule.forRoot({
          config: {
            tokenGetter: tokenGetter,
